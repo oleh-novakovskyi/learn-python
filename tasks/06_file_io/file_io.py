@@ -1,178 +1,198 @@
 # Task 6: File I/O
 # Complete the exercises below
 
-# 1. Create a text file and write content to it
+print("\n1. Create a text file and write content to it")
 # Your code here:
 # Example:
-# # Method 1: Open, write, close
-# file = open("sample.txt", "w")
-# file.write("Hello, world!\n")
-# file.write("This is a sample text file.\n")
-# file.close()
+# Method 1: Open, write, close
+file = open("sample.txt", "w")
+file.write("Hello, world!\n")
+file.write("This is a sample text file.\n")
+file.write("By Oleh Novakovskyi!\n")
+file.close()
 # 
-# print("File created successfully.")
+print("File created successfully.")
 
 
-# 2. Read content from a text file
+print("\n2. Read content from a text file")
 # Your code here:
 # Example:
-# # Method 1: Read entire file
-# file = open("sample.txt", "r")
-# content = file.read()
-# file.close()
+print("\nMethod 1: Read entire file")
+file = open("sample.txt", "r")
+content = file.read()
+file.close()
 # 
-# print("File content (read):")
-# print(content)
+print("File content (read):")
+print(content)
 # 
-# # Method 2: Read line by line
-# file = open("sample.txt", "r")
-# lines = file.readlines()
-# file.close()
+print("\nMethod 2: Read line by line")
+file = open("sample.txt", "r")
+lines = file.readlines()
+file.close()
 # 
-# print("File content (readlines):")
-# for i, line in enumerate(lines, 1):
-#     print(f"Line {i}: {line.strip()}")
+print("File content (readlines):")
+for i, line in enumerate(lines, 1):
+     print(f"Line {i}: {line.strip()}")
 
 
-# 3. Append content to an existing file
+print("\n3. Append content to an existing file")
 # Your code here:
 # Example:
-# file = open("sample.txt", "a")
-# file.write("This line was appended.\n")
-# file.write("Another appended line.\n")
-# file.close()
-# 
-# print("Content appended to file.")
-# 
-# # Read the updated file
-# file = open("sample.txt", "r")
-# updated_content = file.read()
-# file.close()
-# 
-# print("Updated file content:")
-# print(updated_content)
+file = open("sample.txt", "a")
+file.write("\n-- ### ---\n")
+file.write("This line was appended.\n")
+file.write("Another appended line.\n")
+file.close()
+#
+print("Content appended to file.")
+#
+# Read the updated file
+file = open("sample.txt", "r")
+updated_content = file.read()
+file.close()
+#
+print("Updated file content:")
+print(updated_content)
 
 
-# 4. Work with file paths using the os module
+print("\n4. Work with file paths using the os module")
 # Your code here:
 # Example:
-# import os
+import os
 # 
-# # Get current working directory
-# current_dir = os.getcwd()
-# print(f"Current directory: {current_dir}")
+# Get current working directory
+current_dir = os.getcwd()
+print(f"Current directory: {current_dir}")
 # 
-# # Join paths in a platform-independent way
-# file_path = os.path.join(current_dir, "data", "sample.txt")
-# print(f"Full file path: {file_path}")
+# Join paths in a platform-independent way
+file_path = os.path.join(current_dir, "data", "sample.txt")
+print(f"Full file path: {file_path}")
 # 
-# # Check if a file exists
-# if os.path.exists("sample.txt"):
-#     print("sample.txt exists")
-# else:
-#     print("sample.txt does not exist")
+# Check if a file exists
+if os.path.exists("sample.txt"):
+     print("sample.txt exists")
+else:
+     print("sample.txt does not exist")
 # 
-# # Get file information
-# if os.path.exists("sample.txt"):
-#     size = os.path.getsize("sample.txt")
-#     print(f"File size: {size} bytes")
+# Get file information
+if os.path.exists("sample.txt"):
+     size = os.path.getsize("sample.txt")
+     print(f"File size: {size} bytes")
 
 
-# 5. Use context managers (with statement) for file operations
+print("\n5. Use context managers (with statement) for file operations")
 # Your code here:
 # Example:
-# # Writing with context manager
-# with open("context_sample.txt", "w") as file:
-#     file.write("Using context manager for file operations.\n")
-#     file.write("No need to explicitly close the file.\n")
+# Writing with context manager
+with open("context_sample.txt", "w") as file:
+     file.write("Using context manager for file operations.\n")
+     file.write("No need to explicitly close the file.\n")
 # 
-# print("File written using context manager.")
+print("File written using context manager.")
 # 
-# # Reading with context manager
-# with open("context_sample.txt", "r") as file:
-#     content = file.read()
+# Reading with context manager
+with open("context_sample.txt", "r") as file:
+    content = file.read()
 # 
-# print("Content from context manager file:")
-# print(content)
+print("Content from context manager file:")
+print(content)
 
 
-# 6. Read and write CSV files
+print("\n6. Read and write CSV files")
 # Your code here:
 # Example:
-# import csv
+import csv
 # 
-# # Writing CSV
-# data = [
-#     ["Name", "Age", "City"],
-#     ["Alice", 30, "New York"],
-#     ["Bob", 25, "Los Angeles"],
-#     ["Charlie", 35, "Chicago"]
-# ]
+# Writing CSV
+data = [
+     ["Name", "Age", "City", "Status"],
+     ["Alice", 30, "New York", "Worker"],
+     ["Bob", 25, "Los Angeles", "Student"],
+     ["Charlie", 35, "Chicago", ""],
+     ["Oleh", 39, "Zhytomyr", "Student"]
+ ]
 # 
-# with open("people.csv", "w", newline="") as file:
-#     writer = csv.writer(file)
-#     writer.writerows(data)
+with open("people.csv", "w", newline="") as file:
+     writer = csv.writer(file)
+     writer.writerows(data)
 # 
-# print("CSV file written successfully.")
+print("CSV file written successfully.")
 # 
-# # Reading CSV
-# with open("people.csv", "r") as file:
-#     reader = csv.reader(file)
-#     print("CSV file content:")
-#     for row in reader:
-#         print(row)
+# Reading CSV
+with open("people.csv", "r") as file:
+     reader = csv.reader(file)
+     print("CSV file content:")
+     for row in reader:
+         print(row)
 # 
-# # Using DictReader and DictWriter
-# dict_data = [
-#     {"Name": "David", "Age": 28, "City": "Boston"},
-#     {"Name": "Eve", "Age": 22, "City": "Miami"},
-#     {"Name": "Frank", "Age": 45, "City": "Seattle"}
-# ]
+# Using DictReader and DictWriter
+dict_data = [
+     {"Name": "David", "Age": 28, "City": "Boston"},
+     {"Name": "Eve", "Age": 22, "City": "Miami"},
+     {"Name": "Frank", "Age": 45, "City": "Seattle"}
+ ]
 # 
-# with open("people_dict.csv", "w", newline="") as file:
-#     fieldnames = ["Name", "Age", "City"]
-#     writer = csv.DictWriter(file, fieldnames=fieldnames)
-#     writer.writeheader()
-#     writer.writerows(dict_data)
-# 
-# print("Dict CSV file written successfully.")
+with open("people_dict.csv", "w", newline="") as file:
+     fieldnames = ["Name", "Age", "City"]
+     writer = csv.DictWriter(file, fieldnames=fieldnames)
+     writer.writeheader()
+     writer.writerows(dict_data)
+#
+print("Dict CSV file written successfully.")
 
+import csv
 
-# 7. Work with JSON files
+new_people = [
+    {"Name": "Ivan", "Age": 29, "City": "Kyiv"},
+    {"Name": "Maria", "Age": 31, "City": "Lviv"}
+]
+
+with open("people_dict.csv", "a", newline="") as file:
+    fieldnames = ["Name", "Age", "City"]
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writerows(new_people)
+
+print("New rows added successfully.")
+
+print("\n7. Work with JSON files")
 # Your code here:
 # Example:
-# import json
+import json
 # 
-# # Create data structure
-# person = {
-#     "name": "Alice",
-#     "age": 30,
-#     "city": "New York",
-#     "languages": ["Python", "JavaScript", "Java"],
-#     "is_student": False,
-#     "contact": {
-#         "email": "alice@example.com",
-#         "phone": "123-456-7890"
-#     }
-# }
+# Create data structure
+person = {
+     "name": "Alice",
+     "age": 30,
+     "city": "New York",
+     "languages": ["Python", "JavaScript", "Java"],
+     "is_student": False,
+     "contact": {
+         "email": "alice@example.com",
+         "phone": "123-456-7890"
+     }
+ }
 # 
-# # Write JSON to file
-# with open("person.json", "w") as file:
-#     json.dump(person, file, indent=4)
+# Write JSON to file
+with open("person.json", "w") as file:
+     json.dump(person, file, indent=10)
+
+print("JSON file written successfully.")
+
+# Read JSON from file
+with open("person.json", "r") as file:
+     loaded_person = json.load(file)
+#
+print("JSON file content:")
+print(json.dumps(loaded_person, indent=4))
+print(json.dumps(loaded_person, separators=(",", ":")))
 # 
-# print("JSON file written successfully.")
-# 
-# # Read JSON from file
-# with open("person.json", "r") as file:
-#     loaded_person = json.load(file)
-# 
-# print("JSON file content:")
-# print(json.dumps(loaded_person, indent=2))
-# 
-# # Access specific data
-# print(f"Name: {loaded_person['name']}")
-# print(f"Languages: {', '.join(loaded_person['languages'])}")
-# print(f"Email: {loaded_person['contact']['email']}")
+# Access specific data
+print(f"Name: {loaded_person['name']}")
+languages_str = ', '.join(loaded_person['languages'])
+print(f"Languages: {languages_str}")
+print(f"Languages: {languages_str.split(",")}")
+print(f"Email: {loaded_person['contact']['email']}")
+print(f"Phone: {loaded_person['contact']['phone']}")
 
 
 # Real-World Task: Note-Taking Application
@@ -226,7 +246,44 @@ def create_note():
     # 3. Save the note content to a text file
     # 4. Create metadata (title, date, tags) and save as JSON
     # 5. Update the master index
-    pass
+    title = input("Enter note title: ").strip()
+    if not title:
+        print("Title cannot be empty.")
+        return
+
+    tags_input = input("Enter tags (comma-separated, optional): ").strip()
+    tags = [tag.strip() for tag in tags_input.split(',') if tag.strip()] if tags_input else []
+
+    content = input("Enter note content: ").strip()
+
+    # Create unique filename
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename_base = title.replace(" ", "_").lower() + "_" + timestamp
+    content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+    meta_file = os.path.join(NOTES_DIR, filename_base + ".json")
+
+    # Save content
+    with open(content_file, "w") as f:
+        f.write(content)
+
+    # Create metadata
+    metadata = {
+        "title": title,
+        "created": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "tags": tags,
+        "filename": filename_base
+    }
+
+    # Save metadata
+    with open(meta_file, "w") as f:
+        json.dump(metadata, f, indent=4)
+
+    # Update index
+    notes_index = get_notes_index()
+    notes_index.append(metadata)
+    save_notes_index(notes_index)
+
+    print(f"Note '{title}' created successfully.")
 
 # Function to view a note
 def view_note():
@@ -236,7 +293,36 @@ def view_note():
     # 2. Ask user to select a note
     # 3. Read the note file and metadata
     # 4. Display the note content and metadata
-    pass
+    notes_index = get_notes_index()
+    if not notes_index:
+        print("No notes available.")
+        return
+
+    print("\nAvailable notes:")
+    for i, note in enumerate(notes_index):
+        print(f"{i + 1}. {note['title']} ({note['created'][:10]})")
+
+    try:
+        choice = int(input("Select note number: ")) - 1
+        if 0 <= choice < len(notes_index):
+            note = notes_index[choice]
+            filename_base = note['filename']
+            content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+
+            with open(content_file, "r") as f:
+                content = f.read()
+
+            print(f"\nTitle: {note['title']}")
+            print(f"Created: {note['created']}")
+            print(f"Tags: {', '.join(note['tags'])}")
+            print("\nContent:")
+            print(content)
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input.")
+    except FileNotFoundError:
+        print("Note file not found.")
 
 # Function to edit a note
 def edit_note():
@@ -248,7 +334,55 @@ def edit_note():
     # 4. Ask what to edit (content, title, or tags)
     # 5. Update the note file and metadata
     # 6. Update the master index if necessary
-    pass
+    notes_index = get_notes_index()
+    if not notes_index:
+        print("No notes available.")
+        return
+
+    print("\nAvailable notes:")
+    for i, note in enumerate(notes_index):
+        print(f"{i + 1}. {note['title']} ({note['created'][:10]})")
+
+    try:
+        choice = int(input("Select note number: ")) - 1
+        if 0 <= choice < len(notes_index):
+            note = notes_index[choice]
+            filename_base = note['filename']
+            content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+            meta_file = os.path.join(NOTES_DIR, filename_base + ".json")
+
+            with open(content_file, "r") as f:
+                content = f.read()
+
+            print(f"\nCurrent title: {note['title']}")
+            new_title = input("New title (enter to keep): ").strip()
+            if new_title:
+                note['title'] = new_title
+
+            print(f"Current tags: {', '.join(note['tags'])}")
+            new_tags_input = input("New tags (comma-separated, enter to keep): ").strip()
+            if new_tags_input:
+                note['tags'] = [tag.strip() for tag in new_tags_input.split(',') if tag.strip()]
+
+            print(f"Current content: {content}")
+            new_content = input("New content (enter to keep): ").strip()
+            if new_content:
+                content = new_content
+
+            # Save updated content and metadata
+            with open(content_file, "w") as f:
+                f.write(content)
+            with open(meta_file, "w") as f:
+                json.dump(note, f, indent=4)
+
+            save_notes_index(notes_index)
+            print("Note updated successfully.")
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input.")
+    except FileNotFoundError:
+        print("Note file not found.")
 
 # Function to delete a note
 def delete_note():
@@ -259,7 +393,39 @@ def delete_note():
     # 3. Confirm deletion
     # 4. Remove the note file and metadata
     # 5. Update the master index
-    pass
+    notes_index = get_notes_index()
+    if not notes_index:
+        print("No notes available.")
+        return
+
+    print("\nAvailable notes:")
+    for i, note in enumerate(notes_index):
+        print(f"{i + 1}. {note['title']} ({note['created'][:10]})")
+
+    try:
+        choice = int(input("Select note number to delete: ")) - 1
+        if 0 <= choice < len(notes_index):
+            note = notes_index[choice]
+            confirm = input(f"Delete '{note['title']}'? (y/n): ").strip().lower()
+            if confirm == 'y':
+                filename_base = note['filename']
+                content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+                meta_file = os.path.join(NOTES_DIR, filename_base + ".json")
+
+                os.remove(content_file)
+                os.remove(meta_file)
+
+                notes_index.pop(choice)
+                save_notes_index(notes_index)
+                print("Note deleted successfully.")
+            else:
+                print("Deletion cancelled.")
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input.")
+    except FileNotFoundError:
+        print("Note file not found.")
 
 # Function to list all notes
 def list_notes():
@@ -268,7 +434,17 @@ def list_notes():
     # 1. Read the master index
     # 2. Display each note with its title, creation date, and tags
     # 3. Handle the case when no notes exist
-    pass
+    notes_index = get_notes_index()
+    if not notes_index:
+        print("No notes available.")
+        return
+
+    print("\nAll notes:")
+    for note in notes_index:
+        print(f"Title: {note['title']}")
+        print(f"Date: {note['created'][:10]}")
+        print(f"Tags: {', '.join(note['tags'])}")
+        print("-" * 40)
 
 # Function to search notes
 def search_notes():
@@ -278,7 +454,42 @@ def search_notes():
     # 2. Search through note titles and content
     # 3. Display matching notes
     # 4. Handle case when no matches are found
-    pass
+    search_term = input("Enter search term: ").strip().lower()
+    if not search_term:
+        print("Search term cannot be empty.")
+        return
+
+    notes_index = get_notes_index()
+    matches = []
+
+    for note in notes_index:
+        # Check title and tags
+        if (search_term in note['title'].lower() or
+                any(search_term in tag.lower() for tag in note['tags'])):
+            matches.append(note)
+            continue
+
+        # Check content
+        filename_base = note['filename']
+        content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+        try:
+            with open(content_file, "r") as f:
+                content = f.read().lower()
+            if search_term in content:
+                matches.append(note)
+        except FileNotFoundError:
+            pass
+
+    if not matches:
+        print("No notes found matching the search term.")
+        return
+
+    print(f"\nMatching notes ({len(matches)}):")
+    for note in matches:
+        print(f"Title: {note['title']}")
+        print(f"Date: {note['created'][:10]}")
+        print(f"Tags: {', '.join(note['tags'])}")
+        print("-" * 40)
 
 # Function to export a note
 def export_note():
@@ -289,7 +500,52 @@ def export_note():
     # 3. Ask for export format (text or JSON)
     # 4. Ask for export location
     # 5. Export the note to the specified format and location
-    pass
+    notes_index = get_notes_index()
+    if not notes_index:
+        print("No notes available.")
+        return
+
+    print("\nAvailable notes:")
+    for i, note in enumerate(notes_index):
+        print(f"{i + 1}. {note['title']} ({note['created'][:10]})")
+
+    try:
+        choice = int(input("Select note number: ")) - 1
+        if 0 <= choice < len(notes_index):
+            note = notes_index[choice]
+            filename_base = note['filename']
+            content_file = os.path.join(NOTES_DIR, filename_base + ".txt")
+
+            with open(content_file, "r") as f:
+                content = f.read()
+
+            export_format = input("Export format (text/json): ").strip().lower()
+            export_location = input("Export location (filename, optional): ").strip()
+
+            if not export_location:
+                ext = "txt" if export_format == "text" else "json"
+                export_location = f"{note['title'].replace(' ', '_')}.{ext}"
+
+            if export_format == "text":
+                export_data = f"Title: {note['title']}\nCreated: {note['created']}\nTags: {', '.join(note['tags'])}\n\n{content}"
+                with open(export_location, "w") as f:
+                    f.write(export_data)
+            elif export_format == "json":
+                export_data = note.copy()
+                export_data["content"] = content
+                with open(export_location, "w") as f:
+                    json.dump(export_data, f, indent=4)
+            else:
+                print("Invalid format. Use 'text' or 'json'.")
+                return
+
+            print(f"Note exported to {export_location}")
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input.")
+    except FileNotFoundError:
+        print("Note file not found.")
 
 # Display the main menu
 def display_menu():
@@ -343,5 +599,5 @@ def main():
             print(f"\nAn error occurred: {e}")
 
 # Uncomment the line below to run the note-taking application
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+     main()
